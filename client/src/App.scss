@@ -1,0 +1,47 @@
+@import "~bootstrap/scss/bootstrap";
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row{
+  margin-top: 12px;
+}
+
+.row-lang{
+  margin-left: 5px;
+  
+}
+.form-control.add{
+  width: 500px;
+}
+.btn-secondary.custom-button{
+  width: 100px;
+  height: 50px;
+}
+.btn-dark.add{
+  width: 100px;
+  height: 50px;
+}
+.form-control.edit{
+  // margin-top: 5px;
+  padding: 24px;
+}
+
+.cell-p {
+  margin: 5px; 
+  width: 700px;
+  border-radius: .25rem;
+}
+.cell-p .list-group-item.list-group-item-light{
+  margin-bottom: 0;
+}
+.cell{
+  margin: 5px; 
+  width: 100px;
+}
+p{
+ vertical-align: middle;
+}
