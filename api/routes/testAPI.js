@@ -1,8 +1,12 @@
 let notes = [
-    {id: 0, note: 'sanya'},
-    {id: 1, note: 'liza'},
-    {id: 2, note: 'vanya'},
-    {id: 3, note: 'liza'},
+    {id: 0, note: 'День рождения мамы'},
+    {id: 1, note: 'Сходить в магазин'},
+    {id: 2, note: 'Тренировка'},
+    {id: 3, note: 'Купить подарок'},
+    {id: 4, note: 'Подписать обходной лист'},
+    {id: 5, note: 'Собеседование'},
+    {id: 6, note: 'Тренировка'},
+    {id: 7, note: 'Купить подарок'},
   ];
 
 var express = require('express');
@@ -10,16 +14,6 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
     res.send(notes);
-});
-
-router.get('/Note:id', function(req, res) {
-  const note = notes.find((item)=>{
-    if(item.id = req.params.id.slice(1)){
-      return item;
-    }
-  })
-  console.log(note);
-  res.send(note);
 });
 
 router.post('/', function(req,res){

@@ -29,14 +29,16 @@ class Home extends React.Component {
       locale: 'eng',
       notes: [],
       note: '',
-      id: 0,
+      id: '',
     }
   }
 
   async callAPI() {
     let response = await fetch("http://localhost:9000/testAPI", { method: 'GET' });
     let notes = await response.json();
-    this.setState({ notes: notes, id: notes.length });
+    let c = new Date;
+
+    this.setState({ notes: notes, id: c });
   }
 
   componentDidMount() {
@@ -54,7 +56,9 @@ class Home extends React.Component {
       note: this.state.note,
     }
     console.log(note);
-    this.setState({ notes: [...this.state.notes, note], id: this.state.id + 1 });
+    this.setState({ notes: [...this.state.notes, note], id: new Date });
+    console.log('notes');
+    console.log(this.state.notes);
     let response = await fetch(`http://localhost:9000/testAPI`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(note) });
   }
 
@@ -98,7 +102,11 @@ class Home extends React.Component {
     const tempNotes = this.state.notes.filter(function (item) {
       return item.id !== id;
     })
-    this.setState({ notes: tempNotes });
+    console.log("tmp " );
+    console.log(tempNotes);
+    this.setState({notes: tempNotes });
+    console.log("notes " );
+    console.log(this.state.notes);
     let response = await fetch(`http://localhost:9000/testAPI/:${id}`, { method: 'DELETE' });
     let isDeleted = await response.text();
     console.log(isDeleted);
