@@ -14,10 +14,9 @@ ReactDOM.render((
   <BrowserRouter>
     {/* <App> */}
     <Switch>
+    <Route exact path ='/' component = {Home}/>
       <Route  path ='/Home' component = {Home}/>
-      <Route  path ='/Note/:id'  render={(props) => (
-                      <Note {...props}/>
-                  )}/>
+      <Route  path ='/Note/:id' component = {Note}/>
     </Switch>
     {/* </App> */}
   </BrowserRouter>

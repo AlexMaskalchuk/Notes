@@ -5,6 +5,22 @@
   flex-direction: column;
   align-items: center;
 }
+#root{
+  height: 100vh;
+}
+body{
+  width: 100%;
+  height: 100vh;
+}
+.btn-dark.lang{
+  margin: 5px;
+}
+.container-note{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .row{
   margin-top: 12px;
