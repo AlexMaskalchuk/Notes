@@ -10,7 +10,7 @@ let notes = [
 ];
 module.exports = function (app, db) {
   app.post("/notes", (req, res) => {
-    const id = new Date();
+    const id = `f${(+new Date).toString(16)}`;;
     notes.push({ id: id, note: req.body.note });
     res.send(notes);
   });
@@ -35,6 +35,7 @@ module.exports = function (app, db) {
     res.send(notes);
   });
   app.put("/notes/:id", (req, res) => {
+    console.log(req.params.id);
     notes.map((item) => {
       if (item.id === req.params.id) {
         item.note = req.body.note;

@@ -13,18 +13,22 @@ class Home extends React.Component {
           buttonEdit: "Edit",
           buttonSave: "Save",
           buttonDelete: "Delete",
+          buttonRu: "Ru",
+          buttonEng: "Eng",
+          buttonAdd: "Add",
+          label: "Enter note",
         },
         ru: {
           label: "Все заметки",
           buttonEdit: "Изменить",
           buttonSave: "Сохранить",
           buttonDelete: "Удалить",
+          buttonRu: "Ру",
+          buttonEng: "Анг",
+          buttonAdd: "Добавить",
+          label: "Введите заметку",
         },
       },
-      buttonRu: "Ru",
-      buttonEng: "Eng",
-      buttonAdd: "Add",
-      label: "Enter note",
       locale: "eng",
       notes: [],
       note: "",
@@ -39,7 +43,7 @@ class Home extends React.Component {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
-    let notes = await response.json(); 
+    let notes = await response.json();
     this.setState({ notes: notes, id: notes.length });
   }
 
@@ -64,7 +68,6 @@ class Home extends React.Component {
     });
     const notes = await response.json();
     this.setState({ notes: notes });
-    
   };
 
   save = async (id) => {
@@ -94,45 +97,42 @@ class Home extends React.Component {
     this.setState({ notes: notes });
   };
 
-  setRu = () => {
-    this.setState({
-      buttonRu: "РУ",
-      buttonEng: "АНГ",
-      buttonAdd: "Добавить",
-      label: "Введите заметку",
-      locale: "ru",
-    });
-    document.getElementById("butRu").className = "btn btn-dark lang";
-    document.getElementById("butEng").className = "btn btn-light lang";
+  setLanguage = (locale) => {
+    this.setState({ locale: locale });
   };
 
-  setEng = () => {
-    this.setState({
-      buttonRu: "RU",
-      buttonEng: "ENG",
-      buttonAdd: "Add",
-      label: "Enter note",
-      locale: "eng",
-    });
-    document.getElementById("butRu").className = "btn btn-light lang";
-    document.getElementById("butEng").className = "btn btn-dark lang";
+  getClassName = (locale) => {
+    if (locale === this.state.locale) {
+      return "btn btn-dark lang";
+    } else {
+      return "btn btn-light lang";
+    }
   };
 
   render() {
     const { label, notes, locale, lang, editId, editNote } = this.state;
+
     return (
       <div className="container">
         <div className="row-lang">
-          <button id="butRu" className="btn btn-ligh lang" onClick={this.setRu}>
-            {this.state.buttonRu}
+          <button
+            id="butRu"
+            className={this.getClassName("ru")}
+            onClick={() => this.setLanguage("ru")}
+          >
+            {lang[locale].buttonRu}
           </button>
-          <button id="butEng" className="btn btn-dark lang" onClick={this.setEng}>
-            {this.state.buttonEng}
+          <button
+            id="butEng"
+            className={this.getClassName("eng")}
+            onClick={() => this.setLanguage("eng")}
+          >
+            {lang[locale].buttonEng}
           </button>
           <br />
         </div>
         <div>
-          <label>{label}</label>
+          <label>{lang[locale].label}</label>
         </div>
         <input
           maxLength="80"
@@ -142,7 +142,7 @@ class Home extends React.Component {
         />
         <br />
         <button className="btn btn-dark add" onClick={this.add}>
-          {this.state.buttonAdd}
+          {lang[locale].buttonAdd}
         </button>
         <br />
         <div></div>

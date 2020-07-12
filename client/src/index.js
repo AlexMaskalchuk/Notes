@@ -12,13 +12,11 @@ import Note from './Note';
 
 ReactDOM.render((
   <BrowserRouter>
-    {/* <App> */}
     <Switch>
     <Route exact path ='/' component = {Home}/>
       <Route  path ='/Home' component = {Home}/>
       <Route  path ='/Note/:id' component = {Note}/>
     </Switch>
-    {/* </App> */}
   </BrowserRouter>
 
 ), document.getElementById('root'));
