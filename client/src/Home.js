@@ -9,7 +9,7 @@ class Home extends React.Component {
     this.state = {
       lang: {
         eng: {
-          label: "All notes",
+          labelAll: "All notes",
           buttonEdit: "Edit",
           buttonSave: "Save",
           buttonDelete: "Delete",
@@ -19,7 +19,7 @@ class Home extends React.Component {
           label: "Enter note",
         },
         ru: {
-          label: "Все заметки",
+          labelAll: "Все заметки",
           buttonEdit: "Изменить",
           buttonSave: "Сохранить",
           buttonDelete: "Удалить",

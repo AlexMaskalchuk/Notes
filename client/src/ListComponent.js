@@ -23,7 +23,7 @@ class ListComponent extends React.Component {
     } = this.props;
     return (
       <div className="container">
-        <div>{lang[locale].label}</div>
+        <div>{lang[locale].labelAll}</div>
         <div>
           {notes.map(({ id, note }, index) => {
             return (
