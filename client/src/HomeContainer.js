@@ -3,9 +3,7 @@ import "./App.scss";
 import ListComponent from "./ListComponent.js";
 //import {Button} from 'react-bootstrap';
 
-
-
-class Home extends React.Component {
+class HomeContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
